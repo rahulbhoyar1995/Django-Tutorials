@@ -1,4 +1,4 @@
- **Django Syllabus**
+ ##  **Django Syllabus**
 
 ---
 
@@ -181,5 +181,3 @@
 2. An e-commerce website with user authentication and product management.
 3. A student management system with CRUD operations.
 4. A library management system with book issue/return functionality.
-
-Let me know if you'd like explanations or code examples for specific sections!
