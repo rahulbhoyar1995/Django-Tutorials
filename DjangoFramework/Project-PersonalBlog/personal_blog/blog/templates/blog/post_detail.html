@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+  <title>{{ post.title }}</title>
+</head>
+
+<body>
+  <header>
+    <h1>{{ post.title }}</h1>
+  </header>
+
+  <main>
+    <article>
+      <p>{{ post.content }}</p>
+      <p><strong>Category:</strong> {{ post.category.name }}</p>
+    </article>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <ul>
+        {% for comment in post.comments.all %}
+        <li>
+          <strong>{{ comment.author }}</strong>: {{ comment.content }}
+        </li>
+        {% empty %}
+        <li>No comments yet. Be the first to comment!</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="add-comment-section">
+      <h3>Add a Comment</h3>
+      <form method="post">
+        {% csrf_token %}
+        <label for="author">Your Name</label>
+        <input type="text" id="author" name="author" placeholder="Your Name" required>
+
+        <label for="content">Your Comment</label>
+        <textarea id="content" name="content" placeholder="Your Comment" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Blog Website</p>
+  </footer>
+</body>
+
+</html>
