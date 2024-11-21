@@ -1,4 +1,4 @@
-Creating a personal blog website using Django involves several steps. Below is a comprehensive guide to help you build it:
+## personal blog website:
 
 ---
 
@@ -133,7 +133,7 @@ def post_detail(request, slug):
 
 ### Create Templates
 3. Create `templates/blog/post_list.html`:
-   ```html
+```
 {% load static %}
 
 <!DOCTYPE html>
@@ -164,8 +164,9 @@ def post_detail(request, slug):
    ```
 
 4. Create `templates/blog/post_detail.html`:
-   ```html
-   {% load static %}
+   
+ ```
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -690,9 +691,7 @@ class CommentAdmin(admin.ModelAdmin):
 Now you can manage your blog content directly from the admin panel! Let me know if you need help with customizing it further.
 
 
-The error indicates that the fields `published_date` and `created_date` in your models do not exist or are incorrectly referenced in the `list_display` and `list_filter` attributes of your `PostAdmin` and `CommentAdmin` classes. You need to ensure these fields are properly defined in the corresponding models.
-
-Here’s how to fix the issue:
+### Verification of models
 
 ---
 
@@ -787,5 +786,3 @@ If you’ve added or renamed fields in the models, make sure to create and apply
 - Fields like `published_date` and `created_date` must be present in the model and must be either:
   - A model field.
   - A callable (e.g., a method defined in the model or admin class).
-
-Let me know if you need further clarification!
